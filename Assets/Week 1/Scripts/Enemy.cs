@@ -6,27 +6,39 @@ public class Enemy : MonoBehaviour
 {
 
     // 5 Enemies variables
-
-    //variables 1 
-
-    //variables 2
-
-    //variables 3 
-
-    //variables 4 
-
-    //variables 5 
+    [SerializeField] private float _maxHP;
+    [SerializeField] private float _currentHP;
+    [SerializeField] private float _maxSpeed;
+    [SerializeField] private float _currentSpeed;
+    [SerializeField] private bool _canMove;
+    [SerializeField] private float _str;
 
 
     // 5 Enemies methods
 
-    //Method 1
+    public virtual void TakeDamage(float damage)
+    {
+        this._currentHP -= damage;
+        if (this._currentHP < 0) {  this._currentHP = 0; }
+    }
 
-    //Method 2
+    public virtual float GetHP()
+    {
+        return this._currentHP;
+    }
 
-    //Method 3
+    public virtual float GetSpeed()
+    {
+        return this._currentSpeed;
+    }
 
-    //Method 4
+    public virtual bool CanMove()
+    {
+        return this._canMove;
+    }
 
-    //Method 5
+    public virtual float GetDamage()
+    {
+        return this._str;
+    }
 }
