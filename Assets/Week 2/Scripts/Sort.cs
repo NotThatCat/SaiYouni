@@ -196,7 +196,7 @@ public class Sort : MonoBehaviour
         return arr;
     }
 
-    void Heapify(int[] arr, int n, int i)
+    public int[] Heapify(int[] arr, int n, int i)
     {
         int largest = i;   // Khởi tạo largest là root
         int left = 2 * i + 1;  // Con trái
