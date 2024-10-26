@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectSpawner : Spawner<EffectCtrl>
+public abstract class EffectCtrl : PoolObj
 {
-
+    
 }
