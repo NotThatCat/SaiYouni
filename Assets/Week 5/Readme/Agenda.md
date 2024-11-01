@@ -3,6 +3,9 @@
 ## 1. Kỹ Thuật Spawner<T> Có Tên Gọi Là Gì
 
 Trả lời:
+Kỹ thuật Spawner<T> thường được gọi là Generic Spawner Pattern (Mẫu Generic Spawner). Đây là một mẫu thiết kế sử dụng Generics (kiểu tổng quát) để tạo ra các đối tượng theo một kiểu cụ thể được định trước trong lúc chạy. Kỹ thuật này thường được áp dụng trong các hệ thống game như tạo kẻ địch, đạn, hoặc vật phẩm, nơi mà đối tượng cần được sinh ra một cách linh hoạt nhưng vẫn đảm bảo tính đúng đắn về kiểu dữ liệu.
+
+
 
 ## 2. Bài Tập Sử Dụng `<T>`
 

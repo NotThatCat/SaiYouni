@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyCtrl : PMono
+public class EnemyCtrl : PoolObj
 {
 
     [SerializeField] protected NavMeshAgent _agent;
@@ -28,5 +28,10 @@ public class EnemyCtrl : PMono
     {
         if (this._animator != null) return;
         this._animator = transform.Find("Model").GetComponent<Animator>();
+    }
+
+    public override string GetName()
+    {
+        return "Enemy";
     }
 }
