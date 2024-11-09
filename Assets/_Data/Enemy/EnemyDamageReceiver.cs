@@ -33,14 +33,23 @@ public class EnemyDamageReceiver : DamageReceiver
         Debug.Log(transform.name + ": DoDespawn", gameObject);
         despawn.DoDespawn();
         this.currentHP = this.maxHP;
+
+        InventoriesManager.Instance.AddItem(ItemCode.Gold, 1);
+        InventoriesManager.Instance.AddItem(ItemCode.Crystal, 2);
+        InventoriesManager.Instance.AddItem(ItemCode.PlayerExp, 1);
     }
 
     protected override void OnDead()
     {
         Debug.Log(transform.name + ": OnDead", gameObject);
-        this.ctrl.Animator.SetTrigger("isDying");
-        int timerID = TimerManager.Instance.StartTimer(2f, this.DoDespawn);
-        Debug.Log(transform.name + ": timerID: " + timerID, gameObject);
+
+        if (!this.ctrl.Animator.GetBool("isDying"))
+        {
+            this.ctrl.Animator.SetTrigger("isDying");
+            int timerID = TimerManager.Instance.StartTimer(2f, this.DoDespawn);
+            Debug.Log(transform.name + ": timerID: " + timerID, gameObject);
+
+        }
     }
 
     protected override void OnHurt()
