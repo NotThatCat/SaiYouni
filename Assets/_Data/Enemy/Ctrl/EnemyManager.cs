@@ -21,7 +21,7 @@ public class EnemyManager : PMono
     {
         if (this.spawner != null) return;
         this.spawner = transform.GetComponent<EnemySpawner>();
-        Debug.Log(transform.name + ": LoadSpawner", gameObject);
+        //Debug.Log(transform.name + ": LoadSpawner", gameObject);
     }
 
     protected virtual void FixedUpdate()

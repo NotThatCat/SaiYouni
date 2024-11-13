@@ -5,6 +5,16 @@ using UnityEngine;
 public class PMono : MonoBehaviour
 {
 
+    protected virtual void Start()
+    {
+        this.Init();
+    }
+
+    public virtual void Init()
+    {
+
+    }
+
     protected virtual void Reset()
     {
         this.LoadComponents();

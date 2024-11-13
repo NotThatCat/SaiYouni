@@ -61,6 +61,6 @@ public class TowerShooting : TowerAbstract
         if (this.firePoints.Count > 0) return;
         FirePoint[] points = this.ctrl.GetComponentsInChildren<FirePoint>();
         this.firePoints = new List<FirePoint>(points);
-        Debug.LogWarning(transform.name + ": LoadFirePoints", gameObject);
+        //Debug.LogWarning(transform.name + ": LoadFirePoints", gameObject);
     }
 }

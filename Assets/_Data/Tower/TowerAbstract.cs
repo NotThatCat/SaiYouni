@@ -18,6 +18,6 @@ public abstract class TowerAbstract : PMono
     {
         if (this.ctrl != null) return;
         this.ctrl = transform.parent.GetComponent<TowerCtrl>();
-        Debug.Log(transform.name + ": LoadTowerCtrl", gameObject);
+        //Debug.Log(transform.name + ": LoadTowerCtrl", gameObject);
     }
 }

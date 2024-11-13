@@ -21,13 +21,13 @@ public class TowerCtrl : PMono
     {
         if (this.radar != null) return;
         this.radar = GetComponentInChildren<TowerRadar>();
-        Debug.Log(transform.name + ": LoadRadar", gameObject);
+        //Debug.Log(transform.name + ": LoadRadar", gameObject);
     }
 
     protected virtual void LoadRotator()
     {
         if (this.rotator != null) return;
         this.rotator = transform.Find("Model").Find("Rotator");
-        Debug.Log(transform.name + ": LoadRotator", gameObject);
+        //Debug.Log(transform.name + ": LoadRotator", gameObject);
     }
 }
