@@ -46,7 +46,7 @@ namespace Invector.vCharacterController
 
             if (validInput)
             {
-                // calculate input smooth
+                // calculate _input smooth
                 inputSmooth = Vector3.Lerp(inputSmooth, input, (isStrafing ? strafeSpeed.movementSmooth : freeSpeed.movementSmooth) * Time.deltaTime);
 
                 Vector3 dir = (isStrafing && (!isSprinting || sprintOnlyFree == false) || (freeSpeed.rotateWithCamera && input == Vector3.zero)) && rotateTarget ? rotateTarget.forward : moveDirection;
@@ -69,7 +69,7 @@ namespace Invector.vCharacterController
                 right.y = 0;
                 //get the forward direction relative to referenceTransform Right
                 var forward = Quaternion.AngleAxis(-90, Vector3.up) * right;
-                // determine the direction the player will face based on input and the referenceTransform's right and forward directions
+                // determine the direction the player will face based on _input and the referenceTransform's right and forward directions
                 moveDirection = (inputSmooth.x * right) + (inputSmooth.z * forward);
             }
             else

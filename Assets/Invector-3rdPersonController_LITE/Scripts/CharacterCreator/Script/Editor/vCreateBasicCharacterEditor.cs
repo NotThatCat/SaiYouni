@@ -59,7 +59,7 @@ namespace Invector.vCharacterController
             if (!charObj)
                 EditorGUILayout.HelpBox("Make sure your FBX model is set as Humanoid!", MessageType.Info);
             else if (!charExist)
-                EditorGUILayout.HelpBox("Missing a Animator Component", MessageType.Error);
+                EditorGUILayout.HelpBox("Missing a Image Component", MessageType.Error);
             else if (!isHuman)
                 EditorGUILayout.HelpBox("This is not a Humanoid", MessageType.Error);
             else if (!isValidAvatar)
@@ -72,7 +72,7 @@ namespace Invector.vCharacterController
             if (charObj != null && charObj.GetComponent<vThirdPersonController>() != null)
                 EditorGUILayout.HelpBox("This gameObject already contains the component vThirdPersonController", MessageType.Warning);
 
-            controller = EditorGUILayout.ObjectField("Animator Controller: ", controller, typeof(RuntimeAnimatorController), false) as RuntimeAnimatorController;            
+            controller = EditorGUILayout.ObjectField("Image Controller: ", controller, typeof(RuntimeAnimatorController), false) as RuntimeAnimatorController;            
             
             GUILayout.EndVertical();          
 

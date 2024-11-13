@@ -25,12 +25,12 @@ public class EnemyDamageReceiver : DamageReceiver
     {
         if (this.despawn != null) return;
         this.despawn = transform.parent.GetComponentInChildren<EnemyDespawn>();
-        Debug.Log(transform.name + ": LoadDespawn", gameObject);
+        //Debug.Log(transform.name + ": LoadDespawn", gameObject);
     }
 
     protected virtual void DoDespawn()
     {
-        Debug.Log(transform.name + ": DoDespawn", gameObject);
+        //Debug.Log(transform.name + ": DoDespawn", gameObject);
         despawn.DoDespawn();
         this.currentHP = this.maxHP;
 
@@ -41,20 +41,20 @@ public class EnemyDamageReceiver : DamageReceiver
 
     protected override void OnDead()
     {
-        Debug.Log(transform.name + ": OnDead", gameObject);
+        //Debug.Log(transform.name + ": OnDead", gameObject);
 
         if (!this.ctrl.Animator.GetBool("isDying"))
         {
             this.ctrl.Animator.SetTrigger("isDying");
             int timerID = TimerManager.Instance.StartTimer(2f, this.DoDespawn);
-            Debug.Log(transform.name + ": timerID: " + timerID, gameObject);
+            //Debug.Log(transform.name + ": timerID: " + timerID, gameObject);
 
         }
     }
 
     protected override void OnHurt()
     {
-        Debug.Log(transform.name + ": OnHurt", gameObject);
+        //Debug.Log(transform.name + ": OnHurt", gameObject);
         if (!this.ctrl.Animator.GetBool("isHit"))
         {
             this.ctrl.Animator.SetTrigger("isHit");

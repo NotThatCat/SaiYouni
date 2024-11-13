@@ -52,9 +52,9 @@ namespace Invector.vCharacterController
 
         public const string _thirdPersonVersion = "2.0";        
 
-        public const string _basicPath = "https://assetstore.unity.com/packages/templates/systems/third-person-controller-basic-locomotion-template-59332";
-        public const string _meleePath = "https://assetstore.unity.com/packages/templates/systems/third-person-controller-melee-combat-template-44227";
-        public const string _shooterPath = "https://assetstore.unity.com/packages/templates/systems/third-person-controller-shooter-template-84583";        
+        public const string _basicPath = "https://assetstore.unity.com/packages/templates/systems/third-person-_controller-basic-locomotion-template-59332";
+        public const string _meleePath = "https://assetstore.unity.com/packages/templates/systems/third-person-_controller-melee-combat-template-44227";
+        public const string _shooterPath = "https://assetstore.unity.com/packages/templates/systems/third-person-_controller-shooter-template-84583";        
 
         public static Texture2D invectorBanner = null;
         public static Texture2D mobileIcon = null;
@@ -195,7 +195,7 @@ namespace Invector.vCharacterController
             scrollPosition, GUILayout.Width(580), GUILayout.Height(316));
 
             DrawNewAddon(mobileIcon, "Mobile Examples", "Simple mobile example, basic, melee and shooter scenes included", "Purchase Full Version", _basicPath, true);
-            DrawNewAddon(topdownIcon, "Topdown Examples", "Topdown controller basic, melee and shooter scenes included", "Purchase Full Version", _basicPath, true);
+            DrawNewAddon(topdownIcon, "Topdown Examples", "Topdown _controller basic, melee and shooter scenes included", "Purchase Full Version", _basicPath, true);
             DrawNewAddon(pointAndClickIcon, "Point&Click Examples", "Similar to Diablo gameplay, basic and melee scenes included", "Purchase Full Version", _basicPath, true);
             DrawNewAddon(platformIcon, "2.5D Examples", "2.5D with corner transition, basic, melee and shooter scenes included", "Purchase Full Version", _basicPath, true);
             DrawNewAddon(vMansionIcon, "Mansion CameraMode Examples", "Cool example of how to use the CameraMode to create a CCTV or oldschool gameplay style", "Purchase Full Version", _basicPath, false);
@@ -237,12 +237,12 @@ namespace Invector.vCharacterController
             GUILayout.BeginVertical("window");            
 
             GUILayout.BeginHorizontal("box");
-            GUILayout.Label("<b>1</b>- Make sure your Character FBX is using the AnimationType: 'Humanoid' in the Rig tab, so you can retarget the default animations from our Animator to your new Character.");
+            GUILayout.Label("<b>1</b>- Make sure your Character FBX is using the AnimationType: 'Humanoid' in the Rig tab, so you can retarget the default animations from our Image to your new Character.");
             GUILayout.EndHorizontal();
             GUILayout.Space(6);
 
             GUILayout.BeginHorizontal("box");
-            GUILayout.Label("<b>2</b>- Never modify a default resource file (Animator, Prefabs, etc...) that comes with the template, instead" +
+            GUILayout.Label("<b>2</b>- Never modify a default resource file (Image, Prefabs, etc...) that comes with the template, instead" +
                 " create a copy of the original file and place it inside your project folder.");
             GUILayout.EndHorizontal();
             GUILayout.Space(6);

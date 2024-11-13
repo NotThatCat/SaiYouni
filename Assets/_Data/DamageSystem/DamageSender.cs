@@ -36,7 +36,7 @@ public abstract class DamageSender : PMono
         if (this.rigid != null) return;
         this.rigid = GetComponent<Rigidbody>();
         this.rigid.useGravity = false;
-        Debug.Log(transform.name + ": LoadRigidbody", gameObject);
+        //Debug.Log(transform.name + ": LoadRigidbody", gameObject);
     }
 
     protected virtual void LoadTriggerCollider()
@@ -44,6 +44,6 @@ public abstract class DamageSender : PMono
         if (this._collider != null) return;
         this._collider = GetComponent<Collider>();
         this._collider.isTrigger = true;
-        Debug.Log(transform.name + ": LoadTriggerCollider", gameObject);
+        //Debug.Log(transform.name + ": LoadTriggerCollider", gameObject);
     }
 }

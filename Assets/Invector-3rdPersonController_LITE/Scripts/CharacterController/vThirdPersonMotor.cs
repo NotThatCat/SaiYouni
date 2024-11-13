@@ -84,7 +84,7 @@ namespace Invector.vCharacterController
         internal bool isSprinting { get; set; }
         public bool stopMove { get; protected set; }
 
-        internal float inputMagnitude;                      // sets the inputMagnitude to update the animations in the animator controller
+        internal float inputMagnitude;                      // sets the inputMagnitude to update the animations in the animator _controller
         internal float verticalSpeed;                       // set the verticalSpeed based on the verticalInput
         internal float horizontalSpeed;                     // set the horizontalSpeed based on the horizontalInput       
         internal float moveSpeed;                           // set the current moveSpeed for the MoveCharacter method
@@ -94,13 +94,13 @@ namespace Invector.vCharacterController
         internal float jumpCounter;                         // used to count the routine to reset the jump
         internal float groundDistance;                      // used to know the distance from the ground
         internal RaycastHit groundHit;                      // raycast to hit the ground 
-        internal bool lockMovement = false;                 // lock the movement of the controller (not the animation)
-        internal bool lockRotation = false;                 // lock the rotation of the controller (not the animation)        
+        internal bool lockMovement = false;                 // lock the movement of the _controller (not the animation)
+        internal bool lockRotation = false;                 // lock the rotation of the _controller (not the animation)        
         internal bool _isStrafing;                          // internally used to set the strafe movement                
         internal Transform rotateTarget;                    // used as a generic reference for the camera.transform
-        internal Vector3 input;                             // generate raw input for the controller
+        internal Vector3 input;                             // generate raw _input for the _controller
         internal Vector3 colliderCenter;                    // storage the center of the capsule collider info                
-        internal Vector3 inputSmooth;                       // generate smooth input based on the inputSmooth value       
+        internal Vector3 inputSmooth;                       // generate smooth _input based on the inputSmooth value       
         internal Vector3 moveDirection;                     // used to know the direction you're moving 
 
         #endregion
@@ -165,7 +165,7 @@ namespace Invector.vCharacterController
 
         public virtual void MoveCharacter(Vector3 _direction)
         {
-            // calculate input smooth
+            // calculate _input smooth
             inputSmooth = Vector3.Lerp(inputSmooth, input, (isStrafing ? strafeSpeed.movementSmooth : freeSpeed.movementSmooth) * Time.deltaTime);
 
             if (!isGrounded || isJumping) return;
@@ -173,7 +173,7 @@ namespace Invector.vCharacterController
             _direction.y = 0;
             _direction.x = Mathf.Clamp(_direction.x, -1f, 1f);
             _direction.z = Mathf.Clamp(_direction.z, -1f, 1f);
-            // limit the input
+            // limit the _input
             if (_direction.magnitude > 1f)
                 _direction.Normalize();
 

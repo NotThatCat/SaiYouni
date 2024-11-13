@@ -1,6 +1,7 @@
 # Agenda Phát Triển Game Week 7
 
 ## 1. Tìm và fix 1 bug đang có trong game
+Bug: EnemySpawner vùa spawn ra enemy thì enemy bị disable vì OnDespawn được gọi nhiều lần qua Coroutine 
 
 ## 2. Tạo thêm 1 đơn vị tiền tệ khác
 

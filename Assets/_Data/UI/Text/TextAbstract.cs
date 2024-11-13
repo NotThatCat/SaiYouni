@@ -15,6 +15,6 @@ public abstract class TextAbstact : PMono
     {
         if (this.textPro != null) return;
         this.textPro = GetComponent<TextMeshProUGUI>();
-        Debug.Log(transform.name + ": LoadTextPro", gameObject);
+        //Debug.Log(transform.name + ": LoadBtn", gameObject);
     }
 }

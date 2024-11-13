@@ -15,6 +15,6 @@ public class EffectSpawnerCtrl : SaiSingleton<EffectSpawnerCtrl>
     {
         if (this.spawner != null) return;
         this.spawner = GetComponent<EffectSpawner>();
-        Debug.Log(transform.name + ": LoadSpawner", gameObject);
+        //Debug.Log(transform.name + ": LoadSpawner", gameObject);
     }
 }

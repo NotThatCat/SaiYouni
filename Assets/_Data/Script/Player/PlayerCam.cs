@@ -32,7 +32,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Update()
     {
-        // get mouse input
+        // get mouse _input
         float mouseX = Input.GetAxisRaw("Mouse X") * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * sensY;
 

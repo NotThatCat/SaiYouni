@@ -16,7 +16,7 @@ public class BulletDamageSender : DamageSender
     {
         if (this.despawn != null) return;
         this.despawn = transform.parent.GetComponentInChildren<EffectDespawn>();
-        Debug.Log(transform.name + ": LoadDespawn", gameObject);
+        //Debug.Log(transform.name + ": LoadDespawn", gameObject);
     }
 
     protected override void LoadTriggerCollider()
@@ -26,7 +26,7 @@ public class BulletDamageSender : DamageSender
         this._collider.isTrigger = true;
         this.sphereCollider = (SphereCollider)this._collider;
         this.sphereCollider.radius = 0.3f;
-        Debug.Log(transform.name + ": LoadTriggerCollider", gameObject);
+        //Debug.Log(transform.name + ": LoadTriggerCollider", gameObject);
     }
 
     protected override DamageReceiver SendDamage(Collider collider)

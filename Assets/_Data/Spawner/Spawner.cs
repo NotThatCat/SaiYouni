@@ -22,7 +22,7 @@ public abstract class Spawner<T> : PMono where T : PoolObj
             this.holder = new GameObject("Holder").transform;
             this.holder.parent = transform;
         }
-        Debug.Log(transform.name + ": LoadEffectPrefabs", gameObject);
+        //Debug.Log(transform.name + ": LoadEffectPrefabs", gameObject);
     }
 
     public virtual T Spawn(T prefab, Vector3 postion, Quaternion rotation)

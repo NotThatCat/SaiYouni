@@ -48,7 +48,7 @@ public class MapManager : PMono
         pos.x = 2.5f - ((float)width - ((float)_width / 2f)) * 5f;
         pos.y = 0.5f;
         pos.z = 2.5f - ((float)height - ((float)_height / 2f)) * 5f;
-        Debug.Log(width + " " + height + " " + pos);
+        //Debug.Log(width + " " + height + " " + pos);
         return pos;
     }
 }

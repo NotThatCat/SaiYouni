@@ -55,7 +55,7 @@ public class TowerRadar : PMono
         this._collider = GetComponent<SphereCollider>();
         this._collider.isTrigger = true;
         this._collider.radius = 12;
-        Debug.Log(transform.name + ": LoadCollider", gameObject);
+        //Debug.Log(transform.name + ": LoadCollider", gameObject);
     }
 
     protected virtual void LoadRigidbody()
@@ -63,7 +63,7 @@ public class TowerRadar : PMono
         if (this._rigibody != null) return;
         this._rigibody = GetComponent<Rigidbody>();
         this._rigibody.useGravity = false;
-        Debug.Log(transform.name + ": LoadRigidbody", gameObject);
+        //Debug.Log(transform.name + ": LoadRigidbody", gameObject);
     }
 
     protected virtual void AddEnemy(EnemyCtrl enemyCtrl)

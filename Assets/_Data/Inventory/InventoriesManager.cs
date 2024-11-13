@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class InventoriesManager : SaiSingleton<InventoriesManager>
@@ -22,7 +23,7 @@ public class InventoriesManager : SaiSingleton<InventoriesManager>
             if (inventoryCtrl == null) continue;
             this.inventories.Add(inventoryCtrl);
         }
-        Debug.Log(transform.name + ": LoadInventories", gameObject);
+        //Debug.Log(transform.name + ": LoadInventories", gameObject);
     }
 
     protected virtual void LoadItemProfiles()
@@ -30,7 +31,7 @@ public class InventoriesManager : SaiSingleton<InventoriesManager>
         if (this.itemProfiles.Count > 0) return;
         ItemProfileSO[] itemProfileSOs = Resources.LoadAll<ItemProfileSO>("/");
         this.itemProfiles = new List<ItemProfileSO>(itemProfileSOs);
-        Debug.Log(transform.name + ": LoadItemProfiles", gameObject);
+        //Debug.Log(transform.name + ": LoadItemProfiles", gameObject);
     }
 
     public virtual InventoryCtrl GetByCodeName(InventoryType inventoryType)
@@ -89,6 +90,11 @@ public class InventoriesManager : SaiSingleton<InventoriesManager>
         InventoryType inventoryType = itemInventory.ItemProfile.inventoryType;
         InventoryCtrl inventoryCtrl = this.GetByCodeName(inventoryType);
         inventoryCtrl.RemoveItem(itemInventory);
+    }
+
+    public List<InventoryCtrl> GetInventories()
+    {
+        return this.inventories;
     }
 
 }
