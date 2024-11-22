@@ -9,4 +9,8 @@ public class ItemProfileSO : ScriptableObject
     public string itemName;
     public bool isStackable = false;
     public int maxStack = 99;
+    public Sprite image;
+    public int minPrice = 0;
+    public int maxPrice = 0;
+    public int basePrice = 0;
 }

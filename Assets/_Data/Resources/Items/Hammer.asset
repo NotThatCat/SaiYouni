@@ -15,5 +15,9 @@ MonoBehaviour:
   inventoryType: 2
   itemCode: 110
   itemName: Hammer
-  isStackable: 0
+  isStackable: 1
   maxStack: 99
+  image: {fileID: 21300000, guid: 79b47bb526f2f407ea5a899bf93524fc, type: 3}
+  minPrice: 100
+  maxPrice: 100
+  basePrice: 100

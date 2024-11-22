@@ -17,3 +17,4 @@ MonoBehaviour:
   itemName: Crystal
   isStackable: 1
   maxStack: 999999
+  image: {fileID: 21300000, guid: 8661490d01fe14ee3a29db3d39f643fd, type: 3}

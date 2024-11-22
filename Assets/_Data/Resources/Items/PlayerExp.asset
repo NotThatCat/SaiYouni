@@ -17,3 +17,4 @@ MonoBehaviour:
   itemName: Exp
   isStackable: 1
   maxStack: 99
+  image: {fileID: 21300000, guid: 6b8d863aaefb842fcb6259ffc653db01, type: 3}

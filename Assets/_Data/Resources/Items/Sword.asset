@@ -15,5 +15,9 @@ MonoBehaviour:
   inventoryType: 2
   itemCode: 120
   itemName: Sword
-  isStackable: 0
+  isStackable: 1
   maxStack: 99
+  image: {fileID: 0}
+  minPrice: 100
+  maxPrice: 100
+  basePrice: 100

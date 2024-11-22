@@ -10,11 +10,20 @@ public abstract class InventoryCtrl : PMono
 
     public virtual void AddItem(ItemInventory item)
     {
+        Debug.Log(item.ItemProfile + " " + item.itemCount);
         ItemInventory itemExist = this.FindItem(item.ItemProfile.itemCode);
         if (!item.ItemProfile.isStackable || itemExist == null)
         {
             item.SetId(Random.Range(0, 999999999));
             this.items.Add(item);
+            itemExist = this.FindItem(item.ItemProfile.itemCode);
+            if(itemExist.itemCount == 0)
+            {
+                itemExist.itemCount += item.itemCount;
+                Debug.Log(itemExist.ItemProfile + " " + itemExist.itemCount);
+            }
+
+            Debug.Log(itemExist.ItemProfile + " " + itemExist.itemCount);
             return;
         }
 

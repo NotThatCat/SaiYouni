@@ -8,9 +8,11 @@ public enum ItemCode
     PlayerExp = 10,
 
     Wand = 100,
+    WandEpic = 102,
     Hammer = 110,
     Sword = 120,
     Spear = 130,
+    Axe = 140,
 
     PotionManaD = 200,
     PotionManaC = 201,

@@ -12,10 +12,18 @@ public class EnemyCtrl : PoolObj
     [SerializeField] protected Animator _animator;
     public Animator Animator => _animator;
 
+    [SerializeField] protected EnemyDamageReceiver enemyDamageReceiver;
+    public EnemyDamageReceiver EnemyDamageReceiver => enemyDamageReceiver;
+
+    [SerializeField] protected LevelAbstract level;
+    public LevelAbstract Level => level;
+
     protected override void LoadComponents()
     {
         this.LoadAgent();
         this.LoadAnimator();
+        this.LoadEnemyDamageReceiver();
+        this.LoadLevel();
     }
 
     protected virtual void LoadAgent()
@@ -30,8 +38,22 @@ public class EnemyCtrl : PoolObj
         this._animator = transform.Find("Model").GetComponent<Animator>();
     }
 
+    protected virtual void LoadEnemyDamageReceiver()
+    {
+        if (this.enemyDamageReceiver != null) return;
+        this.enemyDamageReceiver = GetComponentInChildren<EnemyDamageReceiver>();
+        Debug.Log(transform.name + ": LoadEnemyDamageReceiver", gameObject);
+    }
+
     public override string GetName()
     {
         return "Enemy";
+    }
+
+    protected virtual void LoadLevel()
+    {
+        if (this.level != null) return;
+        this.level = GetComponentInChildren<LevelAbstract>();
+        Debug.Log(transform.name + ": LoadLevel", gameObject);
     }
 }

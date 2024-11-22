@@ -17,6 +17,6 @@ public abstract class PoolObj : PMono
     {
         if (this.despawn != null) return;
         this.despawn = transform.GetComponentInChildren<DespawnBase>();
-        //Debug.Log(transform.name + ": LoadDespawn", gameObject);
+        //Debug.Log(transform.name + ": Spawner", gameObject);
     }
 }

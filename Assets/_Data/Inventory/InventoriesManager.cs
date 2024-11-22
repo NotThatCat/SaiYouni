@@ -97,4 +97,11 @@ public class InventoriesManager : SaiSingleton<InventoriesManager>
         return this.inventories;
     }
 
+    public virtual ItemInventory GetItem(ItemCode itemCode)
+    {
+        ItemProfileSO itemProfile = this.GetProfileByCode(itemCode);
+        InventoryType invCodeName = itemProfile.inventoryType;
+        InventoryCtrl inventoryCtrl = this.GetByCodeName(invCodeName);
+        return inventoryCtrl.FindItem(itemCode);
+    }
 }

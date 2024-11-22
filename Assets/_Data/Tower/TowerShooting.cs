@@ -5,17 +5,22 @@ using UnityEngine;
 public class TowerShooting : TowerAbstract
 {
     [SerializeField] protected EnemyCtrl target;
-    [SerializeField] protected EffectCtrl bulet;
+    [SerializeField] protected string bulletName = "Bullet";
     [SerializeField] protected float timer = 0;
     [SerializeField] protected float delay = 1f;
     [SerializeField] protected int firePointIndex = 0;
     [SerializeField] protected List<FirePoint> firePoints = new();
+
+    [SerializeField] protected int killCount = 0;
+    public int KillCount => killCount;
+    [SerializeField] protected int totalKill = 0;
 
     protected virtual void FixedUpdate()
     {
         this.GetTarget();
         this.LookAtTarget();
         this.Shooting();
+        this.IsTargetDead();
     }
 
     protected override void LoadComponents()
@@ -43,7 +48,9 @@ public class TowerShooting : TowerAbstract
         this.timer = 0;
 
         FirePoint firePoint = this.GetFirePoint();
-        EffectCtrl newEfffect = EffectSpawnerCtrl.Instance.Spawner.Spawn(this.bulet, firePoint.transform.position, firePoint.transform.rotation);
+
+        EffectCtrl prefab = EffectSpawnerCtrl.Instance.Prefabs.GetByName(this.bulletName);
+        EffectCtrl newEfffect = EffectSpawnerCtrl.Instance.Spawner.Spawn(prefab, firePoint.transform.position, firePoint.transform.rotation);
         newEfffect.gameObject.SetActive(true);
         //EffectSpawner.Instance.SpawnBullet(firePoint.transform.position, firePoint.transform.rotation);
     }
@@ -62,5 +69,22 @@ public class TowerShooting : TowerAbstract
         FirePoint[] points = this.ctrl.GetComponentsInChildren<FirePoint>();
         this.firePoints = new List<FirePoint>(points);
         //Debug.LogWarning(transform.name + ": LoadFirePoints", gameObject);
+    }
+
+    protected virtual bool IsTargetDead()
+    {
+        if (this.target == null) return true;
+        if (!this.target.EnemyDamageReceiver.IsDead()) return false;
+        this.killCount++;
+        this.totalKill++;
+        this.target = null;
+        return true;
+    }
+
+    public virtual bool DeductKillCount(int count)
+    {
+        if (this.killCount < count) return false;
+        this.killCount -= count;
+        return true;
     }
 }

@@ -43,7 +43,7 @@ public class UIInventoryManager : PMono
     protected virtual void Spawn(ItemInventory itemInventory)
     {
         UIInventoryCtrl newUIInventoryCtrl = spawner.Spawn(this.uiInvetory, spawnPoint.position);
-        newUIInventoryCtrl.Init(itemInventory.ItemProfile.itemCode, null);
+        newUIInventoryCtrl.Init(itemInventory);
         newUIInventoryCtrl.gameObject.SetActive(true);
     }
 
@@ -57,7 +57,7 @@ public class UIInventoryManager : PMono
         UIInventoryCtrl[] uIInventoryCtrls = transform.GetComponentsInChildren<UIInventoryCtrl>();
         foreach (UIInventoryCtrl uIInventoryCtrl in uIInventoryCtrls)
         {
-            uIInventoryCtrl.Despawn();
+            uIInventoryCtrl.DoDespawn();
         }
     }
 }

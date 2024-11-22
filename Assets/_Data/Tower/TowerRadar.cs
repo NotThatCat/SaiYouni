@@ -13,20 +13,16 @@ public class TowerRadar : PMono
 
     protected virtual void FixedUpdate()
     {
+        this.RemoveDeadEnemy();
         this.FindNearest();
     }
 
     protected virtual void OnTriggerEnter(Collider collider)
     {
-        Targetable targetable = collider.GetComponent<Targetable>();
-        if (targetable == null) return;
-
         EnemyCtrl enemyCtrl = collider.GetComponentInParent<EnemyCtrl>();
         if (enemyCtrl == null) return;
 
         this.AddEnemy(enemyCtrl);
-
-        //Debug.Log(transform.name + ": " + collider.name, collider.gameObject);
     }
 
     protected virtual void OnTriggerExit(Collider collider)
@@ -95,5 +91,18 @@ public class TowerRadar : PMono
     public virtual EnemyCtrl GetTarget()
     {
         return this.nearest;
+    }
+
+    protected virtual void RemoveDeadEnemy()
+    {
+        foreach (EnemyCtrl enemyCtrl in this.enemies)
+        {
+            if (enemyCtrl.EnemyDamageReceiver.IsDead())
+            {
+                if (enemyCtrl == this.nearest) this.nearest = null;
+                this.enemies.Remove(enemyCtrl);
+                return;
+            }
+        }
     }
 }

@@ -4,15 +4,25 @@ using UnityEngine.EventSystems;
 
 public class EnemyDamageReceiver : DamageReceiver
 {
-    [SerializeField] protected EnemyDespawn despawn;
     [SerializeField] protected EnemyCtrl ctrl;
+    [SerializeField] protected CapsuleCollider capsuleCollider;
 
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadEnemyCtrl();
-        this.LoadDespawn();
+        this.LoadCapsuleCollider();
+    }
+    protected virtual void LoadCapsuleCollider()
+    {
+        if (this.capsuleCollider != null) return;
+        this.capsuleCollider = GetComponent<CapsuleCollider>();
+        this.capsuleCollider.center = new Vector3(0, 1, 0);
+        this.capsuleCollider.radius = 0.3f;
+        this.capsuleCollider.height = 1.5f;
+        this.capsuleCollider.isTrigger = true;
+        Debug.Log(transform.name + ": LoadCapsuleCollider", gameObject);
     }
 
     protected virtual void LoadEnemyCtrl()
@@ -21,22 +31,11 @@ public class EnemyDamageReceiver : DamageReceiver
         this.ctrl = GetComponentInParent<EnemyCtrl>();
     }
 
-    protected virtual void LoadDespawn()
-    {
-        if (this.despawn != null) return;
-        this.despawn = transform.parent.GetComponentInChildren<EnemyDespawn>();
-        //Debug.Log(transform.name + ": LoadDespawn", gameObject);
-    }
-
     protected virtual void DoDespawn()
     {
         //Debug.Log(transform.name + ": DoDespawn", gameObject);
-        despawn.DoDespawn();
-        this.currentHP = this.maxHP;
-
-        InventoriesManager.Instance.AddItem(ItemCode.Gold, 1);
-        InventoriesManager.Instance.AddItem(ItemCode.Crystal, 2);
-        InventoriesManager.Instance.AddItem(ItemCode.PlayerExp, 1);
+        this.ctrl.Despawn.DoDespawn();
+        //this.currentHP = this.maxHP;
     }
 
     protected override void OnDead()
@@ -49,6 +48,13 @@ public class EnemyDamageReceiver : DamageReceiver
             int timerID = TimerManager.Instance.StartTimer(2f, this.DoDespawn);
             //Debug.Log(transform.name + ": timerID: " + timerID, gameObject);
 
+            ItemDropSpawnerCtrl.Instance.DropMany(ItemCode.Gold, transform.position, 10);
+            ItemDropSpawnerCtrl.Instance.DropMany(ItemCode.Crystal, transform.position, 3);
+            ItemDropSpawnerCtrl.Instance.Drop(ItemCode.Wand, transform.position, 1);
+            ItemDropSpawnerCtrl.Instance.Drop(ItemCode.WandEpic, transform.position, 1);
+            ItemDropSpawnerCtrl.Instance.Drop(ItemCode.Hammer, transform.position, 1);
+            ItemDropSpawnerCtrl.Instance.Drop(ItemCode.Axe, transform.position, 1);
+            InventoriesManager.Instance.AddItem(ItemCode.PlayerExp, 1);
         }
     }
 
@@ -65,5 +71,10 @@ public class EnemyDamageReceiver : DamageReceiver
     protected virtual void ResetHurtTrigger()
     {
         this.ctrl.Animator.ResetTrigger("isHit");
+    }
+    protected override void Reborn()
+    {
+        base.Reborn();
+        this.capsuleCollider.enabled = true;
     }
 }

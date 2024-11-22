@@ -19,7 +19,7 @@ public class ButtonInventory : ButtonAbstact
     public override void OnClick()
     {
         //Debug.Log("ButtonInventory");
-        //UIInventoryManager uIInventoryManager = GameObject.FindObjectOfType<UIInventoryManager>();
+        //UIInventoryManager uIShopManager = GameObject.FindObjectOfType<UIInventoryManager>();
         if (!isActive)
         {
             isActive = !isActive;
